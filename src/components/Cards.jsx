@@ -9,8 +9,11 @@ export default function Cards({ items }) {
     const image = new Image();
     image.src = items.src;
     image.onload = () => {
-            setImg(image);
+
+        setImg(image);
+
      
+          
     };
   }, []);
 

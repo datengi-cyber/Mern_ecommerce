@@ -33,9 +33,9 @@ export const datas = [
 {
     id:4,
     title:"Sword Art Online",
-    originalPrice:100,
+    originalPrice:70,
     salePrice:15,
-    rating:5,
+    rating:3,
     src:"/images/sao.jpg"
 
 },
@@ -54,7 +54,7 @@ export const datas = [
 {
     id:6,
     title:"Boruto",
-    originalPrice:120,
+    originalPrice:40,
     salePrice:null,
     rating:3.5,
     src:"/images/boruto.jpg"
@@ -85,7 +85,7 @@ export const datas = [
     title:"Vinland Saga",
     originalPrice:200,
     salePrice:150,
-    rating:1.5,
+    rating:5,
     src:"/images/vinland.jpg"
 
 }

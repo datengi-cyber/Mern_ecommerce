@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import "./index.css"
-import { NavLink } from "react-router-dom";
+import { NavLink ,Link} from "react-router-dom";
 
 export default function Nav({ updateCartNumber }) {
     const [toggle, setToggle] = useState(false)
@@ -9,7 +9,7 @@ export default function Nav({ updateCartNumber }) {
     return (
         <>
             <nav>
-                <h1>Anime<span className="logo">Shoppy</span></h1>
+                <Link to = "/" className="link"><h1>Anime<span className="logo">Shoppy</span></h1></Link>
                 <ul className={toggle?"nav-ul-show":" nav-ul-hide"}>
                     <li className="nav-li"><NavLink to="/" className="link"> Home</NavLink> </li>
                     <li className="nav-li"><NavLink to="/products" className="link">  Products</NavLink> </li>

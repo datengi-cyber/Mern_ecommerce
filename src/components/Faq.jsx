@@ -36,21 +36,21 @@ export default function FAQ() {
   
     return (
         <>
-            <dii className="faq-section">
+            <div className="faq-section">
                 <div className="faq-container">
                     <div className="faq-contents">
                         <div className="faq-title">
                         <h1>FAQ</h1>
                         </div>
                       
-                        {questions.map((question) => {
+                        {questions.map((question ,index) => {
                             return (
-                              <QuestionsAnswer question = {question.question} answer = {question.answer}/>
+                              <QuestionsAnswer question = {question.question} answer = {question.answer} key = {index}/>
                             )
                         })}
                     </div>
                 </div>
-            </dii>
+            </div>
         </>
     );
 }

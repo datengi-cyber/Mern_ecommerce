@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Nav from "./nav";
+import NavBar from "./NavBar";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import ProductsInfo from "./pages/ProductsInfo";
@@ -50,7 +50,7 @@ function App() {
   return (
     <>
       <Router>
-        <Nav updateCartNumber={updateCartNumber()} />
+        < NavBar updateCartNumber={updateCartNumber()} />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/products" element={<Products />} />

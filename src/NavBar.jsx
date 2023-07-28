@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./index.css"
 import { NavLink ,Link} from "react-router-dom";
 
-export default function Nav({ updateCartNumber }) {
+export default function NavBar({ updateCartNumber }) {
     const [toggle, setToggle] = useState(false)
 
     return (

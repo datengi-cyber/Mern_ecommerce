@@ -22,18 +22,17 @@ function App() {
 
 
   function addToCart(data) {
-
-    setCart([...cart, { ...data, quantity: 1 }])
-
-    let dupliItems = cart.find((items) => items.id === data.id);
+    let dupliItems = cart.find((item) => item.id === data.id);
     if (dupliItems) {
-      
       let updatedCart = cart.map((item) =>
-        +item.id === +data.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === data.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...data, quantity: 1 }]);
     }
   }
+  
 
   function updateCartNumber() {
     let counter = 0;
@@ -54,6 +53,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/products" element={<Products />} />
+          <Route exact path="/MenProduct" element={<Products />} />
           <Route exact path="/cart" element={<Cart cart={cart} changeQuantity={changeQuantity} removeItem={removeItem} />} />
           <Route exact path="/productsInfo/:id" element={<ProductsInfo datas={datas} addToCart={addToCart} cart = {cart} />} />
         </Routes>

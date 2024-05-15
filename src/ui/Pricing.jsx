@@ -1,15 +1,8 @@
-export default function Pricing({ salePrice, originalPrice }) {
+export default function Pricing({ price }) {
     return (
         <>
             <div className="price-container">
-                {
-                    salePrice ?
-                        <>
-                            <p className="sale-price ">${salePrice.toFixed(2)}</p>
-                            <p className="original-price">${originalPrice.toFixed(2)}</p>
-                        </>
-                        : <>  ${originalPrice.toFixed(2)}</>
-                }
+                <p className="original-price">{price ? `$${price.toFixed(2)}` : ''}</p>
             </div>
         </>
     )

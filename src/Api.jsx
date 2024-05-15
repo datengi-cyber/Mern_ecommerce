@@ -1,94 +1,142 @@
+// // Import Axios
+// import axios from 'axios';
 
-export const datas = [
-    {
-        id:1,
-        title:"Naruto",
-        originalPrice:40,
-        salePrice:null,
-        rating:5,
-        src:"/images/naruto.jpg"
+// // Initialize the datas array
+// let datas = [];
+// let datas1 = []; // Initialize datas1 array
 
-},
+// // Function to generate random rating from 1 to 5
+// const generateRandomRating = () => Math.floor(Math.random() * 5) + 1;
 
-{
-    id:2,
-    title:"One Piece",
-    originalPrice:30,
-    salePrice:null,
-    rating:5,
-    src:"/images/onepiece.jpg"
+// // Function to fetch data from the first API endpoint and store in datas array
+// const fetchDataAndStoreInDatas = async () => {
+//   try {
+//     // Make a GET request to the first API endpoint using Axios
+//     const response = await axios.get('http://localhost:4000/api/product/get');
 
-},
+//     // Extract data from the response
+//     const data = response.data;
 
-{
-    id:3,
-    title:"Bleach",
-    originalPrice:40,
-    salePrice:20,
-    rating:5,
-    src:"/images/bleach.jpg"
+//     // Convert data to the desired format and generate random rating
+//     datas = data.map(item => ({
+//       id: item._id,
+//       title: item.name,
+//       originalPrice: item.price,
+//       salePrice: null,
+//       description: item.description,
+//       rating: generateRandomRating(),
+//       src: item.image,
+//     }));
 
-},
+//     console.log('Data fetched and stored in datas:', datas);
+//   } catch (error) {
+//     console.error('Error fetching and storing data in datas:', error);
+//   }
+// };
 
-{
-    id:4,
-    title:"Sword Art Online",
-    originalPrice:70,
-    salePrice:15,
-    rating:3,
-    src:"/images/sao.jpg"
+// // Function to fetch data from the second API endpoint and store in datas1 array
+// // Function to fetch data from the second API endpoint and store in datas1 array
+// const fetchDataAndStoreInDatas1 = async () => {
+//   try {
+//     // Make a GET request to the second API endpoint using Axios
+//     const response = await axios.get('http://localhost:4000/api/product/men');
 
-},
+//     // Extract data from the response
+//     const data1 = response.data; // Update to response.data instead of response.data1
 
+//     // Convert data to the desired format and generate random rating
+//     datas1 = data1.map(item => ({
+//       id: item._id,
+//       title: item.name,
+//       originalPrice: item.price,
+//       salePrice: null,
+//       rating: generateRandomRating(),
+//       src: item.image,
+//     }));
 
-{
-    id:5,
-    title:"Erased",
-    originalPrice:50,
-    salePrice:null,
-    rating:4.5,
-    src:"/images/erased.jpg"
-
-},
-
-{
-    id:6,
-    title:"Boruto",
-    originalPrice:40,
-    salePrice:null,
-    rating:3.5,
-    src:"/images/boruto.jpg"
-
-},
-
-{
-    id:7,
-    title:"Parasyte",
-    originalPrice:40,
-    salePrice:35,
-    rating:4.5,
-    src:"/images/parasyte.jpg"
-
-},
-{
-    id:8,
-    title:"Death Note",
-    originalPrice:400,
-    salePrice:200,
-    rating:5,
-    src:"/images/deathNote.jpg"
-
-},
-
-{
-    id:9,
-    title:"Vinland Saga",
-    originalPrice:200,
-    salePrice:150,
-    rating:5,
-    src:"/images/vinland.jpg"
-
-}
-]
+//     console.log('Data fetched and stored in datas1:', datas1);
+//   } catch (error) {
+//     console.error('Error fetching and storing data in datas1:', error);
+//   }
+// };
 
 
+// // Call the fetchDataAndStoreInDatas function to fetch data from the first API and store in datas
+// fetchDataAndStoreInDatas();
+
+// // Call the fetchDataAndStoreInDatas1 function to fetch data from the second API and store in datas1
+// fetchDataAndStoreInDatas1();
+
+// // Export the datas and datas1 arrays
+// export { datas, datas1 };
+
+
+// Import Axios
+import axios from 'axios';
+
+// Initialize the datas array
+let datas = [];
+let datas1 = [];
+
+// Function to generate random rating from 1 to 5
+const generateRandomRating = () => Math.floor(Math.random() * 5) + 1;
+
+// Function to fetch data from the first API endpoint and store in datas array
+const fetchDataAndStoreInDatas = async () => {
+  try {
+    // Make a GET request to the first API endpoint using Axios
+    const response = await axios.get('http://localhost:4000/api/product/get');
+
+    // Extract data from the response
+    const data = response.data;
+
+    // Convert data to the desired format and generate random rating
+    datas = data.map(item => ({
+      id: item._id,
+      title: item.name,
+      originalPrice: item.price,
+      salePrice: item.price * 0.7, // 30% discount
+      description: item.description,
+      rating: generateRandomRating(),
+      src: item.image,
+    }));
+
+    console.log('Data fetched and stored in datas:', datas);
+  } catch (error) {
+    console.error('Error fetching and storing data in datas:', error);
+  }
+};
+
+// Function to fetch data from the second API endpoint and store in datas1 array
+const fetchDataAndStoreInDatas1 = async () => {
+  try {
+    // Make a GET request to the second API endpoint using Axios
+    const response = await axios.get('http://localhost:4000/api/product/men');
+
+    // Extract data from the response
+    const data1 = response.data;
+
+    // Convert data to the desired format and generate random rating
+    datas1 = data1.map(item => ({
+      id: item._id,
+      title: item.name,
+      originalPrice: item.price,
+      salePrice: item.price * 0.7, // 30% discount
+      rating: generateRandomRating(),
+      src: item.image,
+    }));
+
+    console.log('Data fetched and stored in datas1:', datas1);
+  } catch (error) {
+    console.error('Error fetching and storing data in datas1:', error);
+  }
+};
+
+// Call the fetchDataAndStoreInDatas function to fetch data from the first API and store in datas
+fetchDataAndStoreInDatas();
+
+// Call the fetchDataAndStoreInDatas1 function to fetch data from the second API and store in datas1
+fetchDataAndStoreInDatas1();
+
+// Export the datas and datas1 arrays
+export { datas, datas1 };

@@ -9,10 +9,12 @@ export default function Home() {
     return (
         <>
             <HeroSection />
-            <FAQ/>
 
             <Recommended datas={datas} Cards={Cards} />
             <Discounted datas={datas} Cards={Cards} />
+            <FAQ/>
+
+           
             
         </>
     )

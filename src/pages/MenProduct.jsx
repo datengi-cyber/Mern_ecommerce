@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
-import { datas } from "../Api"
-import Cards from "../components/Cards"
+import { useState, useEffect } from "react";
+import { datas1 } from "../Api"; 
+import Cards from "../components/Cards";
 
-export default function Products() {
-    const [data, setData] = useState(datas);
+export default function MenProduct() {
+    const [data1, setData] = useState(datas1); 
     const [searchTerm, setSearchTerm] = useState('');
 
     function onSearch(e) {
@@ -14,9 +14,9 @@ export default function Products() {
     useEffect(() => {
         const filterData = () => {
             if (searchTerm === "") {
-                setData([...datas]);
+                setData([...datas1]);
             } else {
-                const filteredData = datas.filter((item) =>
+                const filteredData = datas1.filter((item) =>
                     item.title.toLowerCase().includes(searchTerm.toLowerCase())
                 );
                 setData(filteredData);
@@ -32,15 +32,15 @@ export default function Products() {
     function valueChange(e) {
         let value = e.target.value
         if (value === "High-To_Low") {
-            setData(data.slice().sort((a, b) => (b.salePrice || b.originalPrice) - (a.salePrice || a.originalPrice)))
+            setData(datas1.slice().sort((a, b) => (b.salePrice || b.originalPrice) - (a.salePrice || a.originalPrice)))
         }
 
         if (value === "Low-To-High") {
-            setData(data.slice().sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice)))
+            setData(datas1.slice().sort((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice)))
         }
 
         if (value === "Ratings") {
-            setData(data.slice().sort((a, b) => b.rating - a.rating))
+            setData(datas1.slice().sort((a, b) => b.rating - a.rating))
         }
     }
 
@@ -49,7 +49,7 @@ export default function Products() {
             <div className="products-container section-spacing">
                 <div className="max-width">
                     <div className="row">
-                        <h1 className="title">All Products</h1>
+                        <h1 className="title">Male Product</h1>
                         <div className="filter-items">
                             <select id="select" defaultValue="default" onChange={valueChange}>
                                 <option value="default" disabled>Sort By</option>
@@ -61,16 +61,16 @@ export default function Products() {
                         </div>
                     </div>
 
-                        {data.length === 0 ? (
-                            <div className="grid">
-                                <p>No matching result</p>
-                            </div>
-                        ) : (
-                            <div className="grid">
-                                {data.map((data) => <Cards key={data.id} items={data} />)}
-                            </div>
-                        )}
-                 
+                    {data.length === 0 ? (
+                        <div className="grid">
+                            <p>No matching result</p>
+                        </div>
+                    ) : (
+                        <div className="grid">
+                            {datas1.map((datas1) => <Cards key={datas1.id} items={datas1} />)}
+                        </div>
+                    )}
+
                 </div>
             </div>
         </>

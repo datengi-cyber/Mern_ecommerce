@@ -33,12 +33,9 @@ export default function Cards({ items }) {
               <div className="card-description">
                 <h1 className="card-title">{items.title}</h1>
                 <Ratings rating={items.rating} />
-                {/* 
-                  Pass the correct price value (salePrice or originalPrice) to the Pricing component 
-                  If salePrice exists, use it, otherwise fallback to originalPrice 
-                */}
+               
                 <Pricing price={items.salePrice !== null ? items.salePrice : items.originalPrice} />
-                {/* <Ratings description={items.description} /> */}
+                
               </div>
             </div>
           ) : (
